@@ -1,0 +1,59 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - data: default
+  - model: random_forest
+  - training: default
+
+# Experiment configuration
+experiment_name: "aml_detection"
+seed: 42
+device: "auto"  # auto, cpu, cuda, mps
+
+# Data paths
+data_dir: "data"
+output_dir: "assets"
+model_dir: "models"
+
+# Logging
+log_level: "INFO"
+log_file: "logs/aml_training.log"
+
+# Model configuration
+models:
+  - decision_tree
+  - random_forest
+  - xgboost
+  - lightgbm
+  - isolation_forest
+  - autoencoder
+
+# Evaluation
+evaluation:
+  test_size: 0.2
+  cv_folds: 5
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+    - auc_roc
+    - auc_pr
+    - precision_at_k
+    - case_detection_rate
+    - alert_quality
+    - workload_reduction
+
+# Backtesting
+backtesting:
+  n_splits: 5
+  test_size: 0.2
+  time_based_split: true
+
+# Explainability
+explainability:
+  shap_samples: 100
+  top_features: 20
+  create_plots: true
+  save_explanations: true

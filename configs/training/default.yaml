@@ -1,0 +1,46 @@
+# @package training
+
+# Training configuration
+epochs: 100
+batch_size: 32
+learning_rate: 0.001
+optimizer: "adam"
+loss_function: "binary_crossentropy"
+
+# Early stopping
+early_stopping:
+  enabled: true
+  patience: 10
+  min_delta: 0.001
+  restore_best_weights: true
+
+# Learning rate scheduling
+lr_scheduler:
+  enabled: false
+  factor: 0.5
+  patience: 5
+  min_lr: 1e-6
+
+# Regularization
+regularization:
+  dropout: 0.2
+  l1_reg: 0.0
+  l2_reg: 0.01
+  batch_norm: true
+
+# Monitoring
+monitoring:
+  log_frequency: 10
+  save_checkpoints: true
+  checkpoint_frequency: 50
+  tensorboard: false
+
+# Validation
+validation:
+  validation_split: 0.1
+  validation_frequency: 1
+  validation_metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
